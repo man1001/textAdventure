@@ -167,7 +167,7 @@ public class Locations {
 		n [6][3]= new Navigation("The Void", "Als du das Gebiet betritts zerbricht um dich herum die Realität\n Unfähig das sich vor dir absielende Schauspiel zu begreifen bist du dem Wahnsinn nahe\n Du verlierst 1 Punkt Mentale Belastbarkeit", "nichts", 50, vsLeerenKrieger);
 		n [6][4]= new Navigation("Heiliger Hein", "Auf einer Lichtung findest du ein Schwert welches in einem Stein steckt... Der versuch es herauszuziehen scheitert kläglich...", "MasterSchwert", 99, vsStatue);
 		n [6][5]= new Navigation("Verlassene Stadt", "Die Stadt wirkt verlassen... \n", " ", 50, vsBewohner);
-		n [6][6]= new Navigation("Das Schloss Castlevania", "Das Teufelsschloss erhebt sich vor dir\n unsagbare Schrecken erwarten dich wohl im inneren\n Trotzdem hälst du es für eine gute Idee das Schloss zu betreten...", "Peitsche", 100, vsDracula, "Dracula schleudert seine unheilige Magie auf dich...");
+		n [6][6]= new Navigation("Das Schloss Castlevania", "Das Teufelsschloss erhebt sich vor dir\n unsagbare Schrecken erwarten dich wohl im inneren\n Trotzdem hälst du es für eine gute Idee das Schloss zu betreten...", "Peitsche", 100, vsDracula, "Nachdem du dich durch das komplette Schloss gekämpft hast kommst du endlich im letzten Raum,\n im obersten Stockwerk an...");
 	
 		
 		
