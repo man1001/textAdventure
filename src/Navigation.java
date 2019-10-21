@@ -16,6 +16,7 @@ public class Navigation {
 	boolean bossFight = false;
 	boolean bossPoint = true;
 	
+	//TODO erweitern um Items aufzunehmen
 	public Navigation(String locationName, String locationText, String locationDurchsuchen, int encounterW, Fight fight){
 		this.locationName = locationName;
 		this.locationText = locationText;
@@ -24,12 +25,12 @@ public class Navigation {
 		this.fight = fight;
 
 	}
-	
+	//TODO erweitern um Items zu finden
 	public void durchsuchen(){
 		System.out.println(locationDurchsuchen);
 	}
 	
-	// Konstruktor für Felder auf denen ein Bosskampf stattfindet
+	// Konstruktor fuer Felder auf denen ein Bosskampf stattfindet TODO erweitern um Items aufzunehmen
 	public Navigation(String locationName, String locationText, String locationDurchsuchen, int encounterW, Fight fight,String bossBattleText){
 		this.locationName = locationName;
 		this.locationText = locationText;

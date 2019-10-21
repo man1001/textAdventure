@@ -241,4 +241,6 @@ public class Locations {
 	public void getStats(){
 	spieler.getSpielerSpecs();
 	}
+	
+	//TODO Liste an Items erstellen und sie den n locations array zuordnen
 }
