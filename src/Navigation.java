@@ -29,6 +29,7 @@ public class Navigation {
 		System.out.println(locationDurchsuchen);
 	}
 	
+	// Konstruktor für Felder auf denen ein Bosskampf stattfindet
 	public Navigation(String locationName, String locationText, String locationDurchsuchen, int encounterW, Fight fight,String bossBattleText){
 		this.locationName = locationName;
 		this.locationText = locationText;
