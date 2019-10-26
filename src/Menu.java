@@ -1,3 +1,4 @@
+import java.util.OptionalInt;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +29,7 @@ public class Menu {
 	
 	public void menuStartLocation(){
 		l.startLocation(x, y);
+
 	}
 	
 	public void getMlocation(){
@@ -40,13 +42,47 @@ public class Menu {
 	}
 	
 	public void bewegen(){
-		System.out.println("In welche Richtung möchtest du gehen? [Norden/Süden/Westen/Osten] [stats][MP-Trank][HP-Trank][map]\t[hilfe]");
+		System.out.println("In welche Richtung möchtest du gehen? [Norden/Süden/Westen/Osten]\t[menu]");
 		String s = scan.nextLine();
 		s = s.trim();
 		
+		
+		//menu anzeigen
+		if(s.equalsIgnoreCase("menu")){
+			System.out.println("[stats][MP-Trank][HP-Trank][map (opition)][item (option)][hilfe]");
+		}
+		
+		
+		//item anzeigen aendern und ausrüsten
+		
+		if(s.contains("item")){
+			String [] option = s.split("-", 0);
+			
+			for(int i = 1; i< option.length; i++){
+				    
+					if (option[i].equalsIgnoreCase("h")){
+						System.out.println("Zeigt alle erhaltenen Items an\n item -(option) -(itemNr)\n item -h : hilfe\n item -a (itemNr) : Item ausruesten\n item -b (itemNr) : Itembeschreibung anzeigen");				
+					}
+					
+					if(option[i].equalsIgnoreCase("a")){
+							if(option.length==3 || true){
+								option[i+1].trim();
+								System.out.println(option[i+1]);
+								if(option[i+1].equals("0")){
+									
+									System.out.println("000000");
+								}
+							}
+						}
+					
+			}
+		}
 		//durchsuchen
-				if(s.equalsIgnoreCase("Durchsuchen")){
+				if(s.equalsIgnoreCase("Durchsuchen") || s.equalsIgnoreCase("suchen")){
 					l.getLocationBeschreibung(x, y);
+					int i=l.getItemNr(x, y);
+					System.out.println("Du findest "+ l.getSpieler().spielerItems.getItemListeName(i)+"!");
+					l.getSpieler().spielerItems.ItemListErhalteItem(i);
 				}
 				
 				//Karte

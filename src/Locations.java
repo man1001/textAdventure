@@ -143,7 +143,7 @@ public class Locations {
 		n [3][0]= new Navigation("Tümpel der Vergessenen", "Du kommst an einem morastigen Tümpel an",  "Du findest absolut gar nichts!", 75, vsKrake);
 		n [3][1]= new Navigation("Kristallklarer See", "Du kommst an einem See mit sehr klaren Wasser an!", "Wie immer findest du nichts!", 50, vsPiranha);
 		n [3][2]= new Navigation("südliches Kürbisfeld", "Du läufst über ein Kürbisfeld...\n Du kannst aus der ferne dein Heimatdorf sehen!", "Was denkst du denn?", 30, vsBauer);
-		n [3][3]= new Navigation("Das Dorf Praxx", "Du befindest dich in deinem Heimatdorf, die Vögel singen, die Leute treiben Handel... \n Hier ist die Welt noch in Ordnung!", "nichts", 0, vsNobody);
+		n [3][3]= new Navigation("Das Dorf Praxx", "Du befindest dich in deinem Heimatdorf, die Vögel singen, die Leute treiben Handel... \n Hier ist die Welt noch in Ordnung!", "nichts", 0, vsNobody,1);
 		n [3][4]= new Navigation("Nördlicher Feldweg", "Du kommst an einem Feldweg vorbei, du erinnerst dich das östlich von hier ein alter Bauernhof steht!", " ", 45, vsBanditen);
 		n [3][5]= new Navigation("Nord-Wald", "Du betrittst den nördlichen Wald! \n Du findest einen alten Pfad der dich durch den Wald führt!", " ", 60, vsWolf);
 		n [3][6]= new Navigation("Kirchen-Ruine", "Du betritts eine verfallene alte Ruine einer Kirche! \n Es sieht so aus als ob vor kurzem jemand hier gewesen ist! \n Du siehst dich vorsichtig um...", "Der Klassiker!", 85, vsPriester);
@@ -242,5 +242,8 @@ public class Locations {
 	spieler.getSpielerSpecs();
 	}
 	
-	//TODO Liste an Items erstellen und sie den n locations array zuordnen
+
+	public int getItemNr(int x, int y){
+		return n[x][y].getItemNr();
+	}
 }

@@ -13,10 +13,20 @@ public class Navigation {
 	Scanner scan = new Scanner(System.in);
 	Random random = new Random();
 	String bossText;
+	int itemNr = 0;
 	boolean bossFight = false;
 	boolean bossPoint = true;
 	
 	//TODO erweitern um Items aufzunehmen
+	public Navigation(String locationName, String locationText, String locationDurchsuchen, int encounterW, Fight fight, int item){
+		this.locationName = locationName;
+		this.locationText = locationText;
+		this.locationDurchsuchen = locationDurchsuchen;
+		w = encounterW;
+		this.fight = fight;
+		this.itemNr = item;
+	}
+	
 	public Navigation(String locationName, String locationText, String locationDurchsuchen, int encounterW, Fight fight){
 		this.locationName = locationName;
 		this.locationText = locationText;
@@ -55,6 +65,10 @@ public class Navigation {
 	
 	public String getLocationName(){
 		return locationName;
+	}
+	
+	public int getItemNr(){
+		return itemNr;
 	}
 	
 	public void startNavi(){

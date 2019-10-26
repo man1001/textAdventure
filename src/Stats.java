@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 	String trenner2 ="############################################################################################";
 	
 	Random random = new Random();
+	ItemList spielerItems = new ItemList();
 	
 	public Stats(){
 		name = "defaultHero";
@@ -205,6 +206,8 @@ import java.util.concurrent.TimeUnit;
 	public void lootPotion(){
 		potion++;
 	}
+	
+	
 	
 	//TODO Methode schreiben um Item-Buffs einzulesen und mit den Stats zu verrechnen, übergabe nach besiegend er Bosse muss möglich sein!
 }
