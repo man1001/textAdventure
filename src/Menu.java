@@ -56,24 +56,29 @@ public class Menu {
 		//item anzeigen aendern und ausrüsten
 		
 		if(s.contains("item")){
-			String [] option = s.split("-", 0);
+			String [] option = s.split(" ", 0);
 			
-			for(int i = 1; i< option.length; i++){
+			for(int i = 0; i< option.length; i++){
 				    
-					if (option[i].equalsIgnoreCase("h")){
+					if (option[i].equalsIgnoreCase("-h")){
 						System.out.println("Zeigt alle erhaltenen Items an\n item -(option) -(itemNr)\n item -h : hilfe\n item -a (itemNr) : Item ausruesten\n item -b (itemNr) : Itembeschreibung anzeigen");				
 					}
 					
-					if(option[i].equalsIgnoreCase("a")){
-							if(option.length==3 || true){
-								option[i+1].trim();
-								System.out.println(option[i+1]);
-								if(option[i+1].equals("0")){
-									
-									System.out.println("000000");
-								}
+					if(option[i].equalsIgnoreCase("-a")){
+						if(option.length == 3){
+							// Test ob Item im besitz ist
+							
+							if(l.getSpieler().spielerItems.getItemBesitz(Integer.parseInt(option[i+1]))==true){
+								System.out.println("Item im  besitz!");
+							}else{
+								System.out.println("Du besitzt dieses Item nicht!");
 							}
+							
+						}else{
+						System.out.println("[!]Falsche Eingabe");	
 						}
+						
+					}
 					
 			}
 		}

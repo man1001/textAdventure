@@ -23,6 +23,10 @@ public class Items {
 	this.krit = kritWert;
 	}
 	
+	public boolean getBesitzStatus(){
+		return besitz;
+	}
+	
 	public void getItem(){
 		besitz = true;
 	}

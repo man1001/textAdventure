@@ -26,6 +26,10 @@ public class ItemList {
 		return il[i].getItemName();
 	}
 	
+	public boolean getItemBesitz(int itemNr){
+		return il[itemNr].getBesitzStatus();
+	}
+	
 	public int getItemListStats(int itemNr, String stat){
 		return il[itemNr].getItemStats(stat);
 	}
