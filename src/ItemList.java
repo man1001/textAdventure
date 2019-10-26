@@ -37,4 +37,9 @@ public class ItemList {
 	public String getItemListBeschreibung(int itemNr){
 		return il[itemNr].getItemBeschreibung();
 	}
+	
+	public Items getItem(int i){
+		return il[i];
+	}
+	
 }

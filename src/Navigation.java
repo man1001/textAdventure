@@ -13,7 +13,7 @@ public class Navigation {
 	Scanner scan = new Scanner(System.in);
 	Random random = new Random();
 	String bossText;
-	int itemNr = 0;
+	int itemNr=-1;
 	boolean bossFight = false;
 	boolean bossPoint = true;
 	
@@ -68,7 +68,12 @@ public class Navigation {
 	}
 	
 	public int getItemNr(){
+		if(itemNr >=0){
 		return itemNr;
+		}else{
+			return -1;
+		}
+		
 	}
 	
 	public void startNavi(){

@@ -18,6 +18,8 @@ public class Menu {
 	int y=3;
 	int z=0;
 	
+	int verwItem = -1;
+	
 	public Stats getStats(){
 		return l.getSpieler();
 	}
@@ -69,7 +71,21 @@ public class Menu {
 							// Test ob Item im besitz ist
 							
 							if(l.getSpieler().spielerItems.getItemBesitz(Integer.parseInt(option[i+1]))==true){
-								System.out.println("Item im  besitz!");
+								if(verwItem == -1){
+									l.getSpieler().buffStatsWithItem(l.getSpieler().spielerItems.getItem(Integer.parseInt(option[i+1])));	
+									verwItem = Integer.parseInt(option[i+1]);
+								}
+								else if(verwItem == Integer.parseInt(option[i+1])){
+									System.out.println("Du verwendest dieses Item bereits!");
+								}else{
+									l.getSpieler().nerfStatsWithItem(l.getSpieler().spielerItems.getItem(verwItem));	
+
+									l.getSpieler().buffStatsWithItem(l.getSpieler().spielerItems.getItem(Integer.parseInt(option[i+1])));	
+									System.out.println("Du hast "+l.getSpieler().spielerItems.getItemListeName(verwItem)+ " gegen "+ l.getSpieler().spielerItems.getItemListeName(Integer.parseInt(option[i+1]))+" ausgetauscht!");
+									verwItem = Integer.parseInt(option[i+1]);
+								}
+								
+								
 							}else{
 								System.out.println("Du besitzt dieses Item nicht!");
 							}
@@ -85,9 +101,12 @@ public class Menu {
 		//durchsuchen
 				if(s.equalsIgnoreCase("Durchsuchen") || s.equalsIgnoreCase("suchen")){
 					l.getLocationBeschreibung(x, y);
+					
 					int i=l.getItemNr(x, y);
+					if(i>=0){
 					System.out.println("Du findest "+ l.getSpieler().spielerItems.getItemListeName(i)+"!");
 					l.getSpieler().spielerItems.ItemListErhalteItem(i);
+					}
 				}
 				
 				//Karte

@@ -23,8 +23,11 @@ import java.util.concurrent.TimeUnit;
 	String trenner = "##########################################Level-UP##########################################";
 	String trenner2 ="############################################################################################";
 	
+	
 	Random random = new Random();
 	ItemList spielerItems = new ItemList();
+	boolean itemInsert = false;
+	int usedItem;
 	
 	public Stats(){
 		name = "defaultHero";
@@ -207,7 +210,33 @@ import java.util.concurrent.TimeUnit;
 		potion++;
 	}
 	
-	
+//angr def specDef specAngr init krit
 	
 	//TODO Methode schreiben um Item-Buffs einzulesen und mit den Stats zu verrechnen, übergabe nach besiegend er Bosse muss möglich sein!
-}
+	public void buffStatsWithItem(Items item){
+		if(itemInsert == false){
+			angr = angr+ item.getItemStats("angr");
+			specAngr = specAngr+ item.getItemStats("specAngr");
+			def = def+ item.getItemStats("def");
+			specDef = specDef+ item.getItemStats("specDef");
+			init = init+ item.getItemStats("init");
+			krit = krit+ item.getItemStats("krit");
+			System.out.println("Du verwendest jetzt: "+ item.getItemName());
+			itemInsert = true;
+		}else{
+			System.out.println("Item bereits in Verwendung!");			
+		}
+	}
+	public void nerfStatsWithItem(Items item){
+		angr = angr- item.getItemStats("angr");
+		specAngr = specAngr- item.getItemStats("specAngr");
+		def = def- item.getItemStats("def");
+		specDef = specDef- item.getItemStats("specDef");
+		init = init- item.getItemStats("init");
+		krit = krit- item.getItemStats("krit");
+
+		itemInsert = false;
+	}
+	
+
+ }
