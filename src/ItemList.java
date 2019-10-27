@@ -27,7 +27,10 @@ public class ItemList {
 	}
 	
 	public boolean getItemBesitz(int itemNr){
-		return il[itemNr].getBesitzStatus();
+		if(itemNr < il.length) {
+		return il[itemNr].getBesitzStatus();	
+		}
+		return false;
 	}
 	
 	public int getItemListStats(int itemNr, String stat){
