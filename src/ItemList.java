@@ -14,7 +14,7 @@ public class ItemList {
 		il[7] = new Items("Stahl Schild", 5, 3, 10, 9, 9, 4, "Ein Schild mit hohem Verteidigungs-Wert.");
 		il[8] = new Items("Stahl Rüstung", 5, 6, 18, 15, 3, 2, "Eine einfache Stahl Rüstung, schwierig sich darin zu bewegen...");
 		il[9] = new Items("Schwarz-Stahl Rüstung", 6, 8, 20, 22, 4, 7, "Eine aus mysteriösen schwarzen Material gefertigte Rüstung, \n der normalen Stahl-Rüstung in allen Punkten überlegen");
-		il[10] = new Items("EVA 01", 100, 100, 50, 150, 30, 30, "Ein gigantischer Mecha-Roboter, welcher ursprünglich zum bekämpfen von Engeln verwendet wurde\n #GetInTheFu*ingRobotShinji");
+		il[10] = new Items("EVA 01", 100, 100, 50, 150, 30, 30, "Ein gigantischer Mecha-Roboter, welcher ursprünglich zum bekämpfen von Engeln erschaffen wurde\n#GetInTheFu*ingRobotShinji");
 	}
 	
 	
@@ -43,6 +43,24 @@ public class ItemList {
 	
 	public Items getItem(int i){
 		return il[i];
+	}
+	
+	public void getItemListeImBesitz(){
+		for(int i = 0; i< il.length; i++){
+			if(il[i].getBesitzStatus()==true){
+				System.out.println(il[i].getItemName()+" Item Nr:"+i);
+			}
+		}
+		
+	}
+	
+	public void getItemStats(int i){
+		System.out.println("\nAngriff:\t\t"+il[i].getItemStats("angr"));
+		System.out.println("Abwehr:\t\t\t"+il[i].getItemStats("def"));
+		System.out.println("Spezialangriff:\t\t"+il[i].getItemStats("specAngr"));
+		System.out.println("Spezialabwehr:\t\t"+il[i].getItemStats("specDef"));
+		System.out.println("Initiative:\t\t"+il[i].getItemStats("init"));
+		System.out.println("Kritische Treffer:\t"+il[i].getItemStats("krit"));
 	}
 	
 }

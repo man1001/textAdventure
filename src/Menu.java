@@ -51,7 +51,14 @@ public class Menu {
 		
 		//menu anzeigen
 		if(s.equalsIgnoreCase("menu")){
-			System.out.println("[stats][MP-Trank][HP-Trank][map (opition)][item (option)][hilfe]");
+			System.out.println("stats\t[Zeigt aktuelles Level und Statuswerte an]");
+			System.out.println("mp-trank\t[Stellt Magie komplett wieder her]");
+			System.out.println("hp-trank\t[Stellt Lebenspunkte komplett wieder her]");
+			System.out.println("map\t[Zeigt Karte mit der aktuellen Position]\nmap -b\t[Zeigt Standort der verbleibenden Boss-Gegner an]");
+			System.out.println("suchen\t[Durchsucht die Umgebung nach Items]");
+			System.out.println("item\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Rüstet das gewünschte Item aus]\nitem -b\t[Zeigt Item-Beschreibung an]");
+			System.out.println("hilfe\t[Zeigt ein recht unnützes Hilfe-Menü an]\n\n");
+			
 		}
 		
 		
@@ -65,6 +72,26 @@ public class Menu {
 					if (option[i].equalsIgnoreCase("-h")){
 						System.out.println("Zeigt alle erhaltenen Items an\n item -(option) -(itemNr)\n item -h : hilfe\n item -a (itemNr) : Item ausruesten\n item -b (itemNr) : Itembeschreibung anzeigen");				
 					}
+					
+					if(option[i].equalsIgnoreCase("-b")){
+						if(option.length == 3){
+							// Test ob Item im besitz ist							
+							if(l.getSpieler().spielerItems.getItemBesitz(Integer.parseInt(option[i+1]))==true){
+								System.out.println("\n");
+								System.out.println(l.getSpieler().spielerItems.getItemListeName(Integer.parseInt(option[i+1])));
+								System.out.println(l.getSpieler().spielerItems.getItemListBeschreibung(Integer.parseInt(option[i+1])));
+								l.getSpieler().spielerItems.getItemStats(Integer.parseInt(option[i+1]));
+								System.out.println("\n");
+								}else{
+								System.out.println("Du besitzt dieses Item nicht!");
+								}
+												
+						}else{
+						System.out.println("[!]Falsche Eingabe");		
+						}
+					}
+						
+					
 					
 					if(option[i].equalsIgnoreCase("-a")){
 						if(option.length == 3){
@@ -97,6 +124,12 @@ public class Menu {
 					}
 					
 			}
+			//Ausgabe aller Items
+			if(s.equalsIgnoreCase("item")){			
+				l.getSpieler().spielerItems.getItemListeImBesitz();
+				System.out.println("\n");
+			}
+			
 		}
 		//durchsuchen
 				if(s.equalsIgnoreCase("Durchsuchen") || s.equalsIgnoreCase("suchen")){

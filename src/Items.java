@@ -15,6 +15,7 @@ public class Items {
 	
 	public Items(String itemName, int angriff, int specAngriff, int defense, int specDefense, int initiative, int kritWert, String itemBeschreibung){
 	this.name = itemName;
+	this.specAngr = specAngriff;
 	this.itemBesch = itemBeschreibung;
 	this.angr = angriff;
 	this.def = defense;
@@ -45,27 +46,27 @@ public class Items {
 	
 	public int getItemStats(String n){
 		
-		if(n=="angr"){
+		if(n.equalsIgnoreCase("angr")){
 			return angr;
 		}
 		
-		if(n=="def"){
+		if(n.equalsIgnoreCase("def")){
 			return def;
 		}
 		
-		if(n=="specDef"){
+		if(n.equalsIgnoreCase("specDef")){
 			return specDef;
 		}
 		
-		if(n=="specAngr"){
+		if(n.equalsIgnoreCase("specAngr")){
 			return specAngr;
 		}
 		
-		if(n=="init"){
+		if(n.equalsIgnoreCase("init")){
 			return init;
 		}
 		
-		if(n=="krit"){
+		if(n.equalsIgnoreCase("krit")){
 			return krit;
 		}
 		
