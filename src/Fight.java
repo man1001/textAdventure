@@ -151,7 +151,7 @@ public class Fight {
 	public void spielerAttack(){
 		String input;
 		int kritWert = random.nextInt(100);
-		System.out.println("Was möchtest du tun? [Angriff/Magie/Scan/Flucht] [heal= Heiltrank verwenden / Trank= magischen Trank verwende]");
+		System.out.println("Was möchtest du tun? [Angriff/Magie/Scan/Flucht] [HP-Trank = Heiltrank verwenden / MP-Trank = magischen Trank verwende]");
 		 input = scan.next();
 		 
 		 if(input.equalsIgnoreCase("adminKill")){
@@ -198,7 +198,7 @@ public class Fight {
 				kritWert=s.getFightingWert("krit");
 			}
 			if(s.getFightingWert("ap")>0){
-				System.out.println("Welchen Zauber möchtest du verwenden?\n [regenerate = Stellt 50 Lebenspunkte wieder her (Kosten 4 AP)]\n[Inferno = Fügt dem Gegener Feuerschaden zu (Kosten 5 AP)]\n[Blizzard = Fügt dem Gegener Frostschaden zu (Kosten 5 AP)]\n[Donnerschock = Fügt dem Gegener Blitzschaden zu (Kosten 5 AP)]\n[power = Garantiert einen kritischen Treffer in der nächsten Runde (Kosten = 20 AP)");
+				System.out.println("Welchen Zauber möchtest du verwenden? (Anfangsbuchstabe genuegt!)\n [regenerate = Stellt 50 Lebenspunkte wieder her (Kosten 4 AP)]\n[Inferno = Fügt dem Gegener Feuerschaden zu (Kosten 5 AP)]\n[Blizzard = Fügt dem Gegener Frostschaden zu (Kosten 5 AP)]\n[Donnerschock = Fügt dem Gegener Blitzschaden zu (Kosten 5 AP)]\n[power = Garantiert einen kritischen Treffer in der nächsten Runde (Kosten = 20 AP)");
 				String spell = scan.next();
 				if( spell.equalsIgnoreCase("regenerate") || spell.equalsIgnoreCase("r")){
 					if(s.getFightingWert("ap")>=4){
@@ -302,7 +302,7 @@ public class Fight {
 		
 		}
 		
-		if(input.equalsIgnoreCase("heal") || input.equalsIgnoreCase("h")){
+		if(input.equalsIgnoreCase("hp-trank") || input.equalsIgnoreCase("hp")){
 			if(s.getPotion()>0){
 				s.heal();
 			}else{
@@ -310,7 +310,7 @@ public class Fight {
 			}
 		}
 		
-		if(input.equalsIgnoreCase("Trank") || input.equalsIgnoreCase("t")){
+		if(input.equalsIgnoreCase("mp-trank") || input.equalsIgnoreCase("mp")){
 			if(s.getTraenke()>0){
 				s.restoreAP();
 			}else{

@@ -57,6 +57,7 @@ public class Menu {
 			System.out.println("map\t[Zeigt Karte mit der aktuellen Position]\nmap -b\t[Zeigt Standort der verbleibenden Boss-Gegner an]");
 			System.out.println("suchen\t[Durchsucht die Umgebung nach Items]");
 			System.out.println("item\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Rüstet das gewünschte Item aus]\nitem -b\t[Zeigt Item-Beschreibung an]");
+			System.out.println("credits\t[Zeigt die Personen an welche an der Erschaffung dieser Videospiel-Perle beteiligt waren!]");
 			System.out.println("hilfe\t[Zeigt ein recht unnützes Hilfe-Menü an]\n\n");
 			
 		}
