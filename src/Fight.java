@@ -192,7 +192,7 @@ public class Fight {
 			e.setLifePoints(-damage);
 			e.SysOutLifePoints();					
 		}
-		
+		// Magie verwenden TODO vereinfachung der Eingabe -> z.B. so was wie magie -f für Feuermagie usw
 		if(input.equalsIgnoreCase("magie") || input.equalsIgnoreCase("m")){
 			if(fokussiert==true){
 				kritWert=s.getFightingWert("krit");
