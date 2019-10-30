@@ -94,21 +94,41 @@ import java.util.concurrent.TimeUnit;
 	}
 	
 	public void getSpielerSpecs(){
-		System.out.println(trenner2);
-		System.out.println(
-				"Statuswerte " + name + ":\n"+		
-		"Level "+ "\t\t\t" +level + "\n"+		
-		"Lebenspunkte "+ "\t\t"+lp+ " / "+lpMax + "\n"+
-		"Aktionspunkte "+ "\t\t" + actionPoints +" / "+ apMax+ "\n"+
-		"Angriff "+ "\t\t" +angr + "\n"+
-		"Abwehr "+ "\t\t\t" +def + "\n"+
-		"Spezial Angriff "+ "\t" +specAngr + "\n"+
-		"Spezial Verteidigung "+ "\t" +specDef + "\n"+
-		"Initiative " + "\t\t" + init + "\n"+
-		"Glück " + "\t\t\t" +krit + "\n\n\n"+
-		"Heiltränke \t\t"+potion+
-		"\nMagische Tränke \t"+ traenke+"\n"
-		);
+		if(itemInsert == false){
+			System.out.println(trenner2);
+			System.out.println(
+					"Statuswerte " + name + ":\n"+		
+			"Level "+ "\t\t\t" +level + "\n"+		
+			"Lebenspunkte "+ "\t\t"+lp+ " / "+lpMax + "\n"+
+			"Aktionspunkte "+ "\t\t" + actionPoints +" / "+ apMax+ "\n"+
+			"Angriff "+ "\t\t" +angr + "\n"+
+			"Abwehr "+ "\t\t\t" +def + "\n"+
+			"Spezial Angriff "+ "\t" +specAngr + "\n"+
+			"Spezial Verteidigung "+ "\t" +specDef + "\n"+
+			"Initiative " + "\t\t" + init + "\n"+
+			"Glück " + "\t\t\t" +krit + "\n\n\n"+
+			"Heiltränke \t\t"+potion+
+			"\nMagische Tränke \t"+ traenke+"\n"
+			);
+		
+		}else{
+			System.out.println(trenner2);
+			
+			System.out.println(
+					"Statuswerte " + name + ":\n"+		
+			"Level "+ "\t\t\t" +level + "\n"+		
+			"Lebenspunkte "+ "\t\t"+lp+ " / "+lpMax + "\n"+
+			"Aktionspunkte "+ "\t\t" + actionPoints +" / "+ apMax+ "\n"+
+			"Angriff "+ "\t\t" +angr + " (+"+spielerItems.getItemListStats(usedItem, "angr")+")"+"\n"+
+			"Abwehr "+ "\t\t\t" +def + " (+"+spielerItems.getItemListStats(usedItem, "def")+")"+ "\n"+
+			"Spezial Angriff "+ "\t" +specAngr + " (+"+spielerItems.getItemListStats(usedItem, "specAngr")+")"+ "\n"+
+			"Spezial Verteidigung "+ "\t" +specDef + " (+"+spielerItems.getItemListStats(usedItem, "specDef")+")"+ "\n"+
+			"Initiative " + "\t\t" + init + " (+"+spielerItems.getItemListStats(usedItem, "init")+")"+ "\n"+
+			"Glück " + "\t\t\t" +krit + " (+"+spielerItems.getItemListStats(usedItem, "krit")+")"+ "\n\n\n"+
+			"Heiltränke \t\t"+potion+
+			"\nMagische Tränke \t"+ traenke+"\n"
+			);
+		}
 	}
 	
 	public int getFightingWert(String s){
@@ -212,7 +232,6 @@ import java.util.concurrent.TimeUnit;
 	
 //angr def specDef specAngr init krit
 	
-	//TODO Methode schreiben um Item-Buffs einzulesen und mit den Stats zu verrechnen, übergabe nach besiegend er Bosse muss möglich sein!
 	public void buffStatsWithItem(Items item){
 		if(itemInsert == false){
 			angr = angr+ item.getItemStats("angr");
@@ -221,10 +240,10 @@ import java.util.concurrent.TimeUnit;
 			specDef = specDef+ item.getItemStats("specDef");
 			init = init+ item.getItemStats("init");
 			krit = krit+ item.getItemStats("krit");
-			System.out.println("Du verwendest jetzt: "+ item.getItemName());
+			System.out.println("Du verwendest jetzt: "+ item.getItemName()+"\n");
 			itemInsert = true;
 		}else{
-			System.out.println("Item bereits in Verwendung!");			
+			System.out.println("Item bereits in Verwendung!\n");			
 		}
 	}
 	public void nerfStatsWithItem(Items item){
@@ -236,6 +255,10 @@ import java.util.concurrent.TimeUnit;
 		krit = krit- item.getItemStats("krit");
 
 		itemInsert = false;
+	}
+	
+	public void setUsedItem(int i){
+		usedItem = i;
 	}
 	
 
