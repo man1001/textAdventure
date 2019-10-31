@@ -151,8 +151,8 @@ public class Fight {
 	public void spielerAttack(){
 		String input;
 		int kritWert = random.nextInt(100);
-		System.out.println("Was möchtest du tun? [Angriff/Magie/Scan/Flucht] [HP-Trank = Heiltrank verwenden / MP-Trank = magischen Trank verwende]");
-		 input = scan.next();
+		System.out.println("Was möchtest du tun? [Angriff/Magie/Scan/Flucht] [HP-Trank = Heiltrank verwenden / MP-Trank = magischen Trank verwende] [Schnelleingabe fuer Magie: magie -r für regeneration usw...]");
+		 input = scan.nextLine();
 		 
 		 if(input.equalsIgnoreCase("adminKill")){
 				System.out.println("Nein Tim, das funktioniert nicht mehr!");
@@ -193,17 +193,128 @@ public class Fight {
 			e.SysOutLifePoints();					
 		}
 		// Magie verwenden TODO vereinfachung der Eingabe -> z.B. so was wie magie -f für Feuermagie usw
-		if(input.equalsIgnoreCase("magie") || input.equalsIgnoreCase("m")){
+		if(input.contains("magie")){
 			if(fokussiert==true){
 				kritWert=s.getFightingWert("krit");
 			}
+
 			if(s.getFightingWert("ap")>0){
-				System.out.println("Welchen Zauber möchtest du verwenden? (Anfangsbuchstabe genuegt!)\n [regenerate = Stellt 50 Lebenspunkte wieder her (Kosten 4 AP)]\n[Inferno = Fügt dem Gegener Feuerschaden zu (Kosten 5 AP)]\n[Blizzard = Fügt dem Gegener Frostschaden zu (Kosten 5 AP)]\n[Donnerschock = Fügt dem Gegener Blitzschaden zu (Kosten 5 AP)]\n[power = Garantiert einen kritischen Treffer in der nächsten Runde (Kosten = 20 AP)");
+		// Einschub Magie vereinfachte Eingabe
+			input.trim();
+			String [] mOrder = input.split(" ", 0);
+			for(int n = 0; n< mOrder.length; n++){
+				
+				// Schnelleingabe regenerationsmagie
+				if(mOrder[n].equals("-r")){
+
+					if(s.getFightingWert("ap")>=15){
+						s.heal(s.getFightingWert("lpMax")/100*20);
+						s.reduceAP(15);
+					}else{
+						System.out.println("Du hast nicht genug AP");
+					}									
+				}
+				// Schnelleingabe feuermagie
+				if(mOrder[n].equals("-i")){
+
+					if(s.getFightingWert("ap")>=5){
+						s.reduceAP(5);
+					if(kritWert <= s.getFightingWert("krit")){
+						damage = (s.getFightingWert("specAngr")*3)-e.getFightingWert("fireDef");
+						System.out.println("Du fügst deinem Gegner einen kritschen feurigen magischen Treffer zu!\n");
+						fokussiert=false;
+					}else{
+						damage =  s.getFightingWert("specAngr") - ( e.getFightingWert("fireDef") + random.nextInt(10));
+					}
+					if(damage <=1){
+						damage = 1;
+					}
+					System.out.println("Du fügst "+ e.getName()+" " +  damage + " Feuer-Magie-Schaden zu!");
+					e.setLifePoints(-damage);
+					e.SysOutLifePoints();
+					break;
+					}else{
+						System.out.println("Du hast keine AP mehr!\n\n");
+					}
+				
+				}
+				//schnelleingabe Eismagie
+				if(mOrder[n].equals("-b")){
+
+					if(s.getFightingWert("ap")>=5){
+						s.reduceAP(5);
+					if(kritWert <= s.getFightingWert("krit")){
+						damage = (s.getFightingWert("specAngr")*3)-e.getFightingWert("iceDef");
+						System.out.println("Du fügst deinem Gegner einen kritschen frostigen magischen Treffer zu!\n");
+						fokussiert=false;
+					}else{
+						damage =  s.getFightingWert("specAngr") -  (e.getFightingWert("iceDef") + random.nextInt(10));
+					}
+					if(damage <=1){
+						damage = 1;
+					}
+					System.out.println("Du fügst "+ e.getName()+" " +  damage + " Eis-Magie-Schaden zu!");
+					e.setLifePoints(-damage);
+					e.SysOutLifePoints();	
+					break;
+					}else{
+						System.out.println("Du hast keine AP mehr!\n\n");
+					}
+				
+				}
+				//Schnelleingabe Donnermagie
+				if(mOrder[n].equals("-d")){
+
+					if(s.getFightingWert("ap")>=5){
+						s.reduceAP(5);
+					if(kritWert <= s.getFightingWert("krit")){
+						damage = (s.getFightingWert("specAngr")*3)-e.getFightingWert("thunderDef");
+						System.out.println("Du fügst deinem Gegner einen kritschen elekrischen magischen Treffer zu!\n");
+						fokussiert=false;
+					}else{
+						damage =  s.getFightingWert("specAngr") -  (e.getFightingWert("thunderDef") + random.nextInt(10));
+					}
+					if(damage <=1){
+						damage = 1;
+					}
+					System.out.println("Du fügst "+ e.getName()+" " +  damage + " Blitz-Magie-Schaden zu!");
+					e.setLifePoints(-damage);
+					e.SysOutLifePoints();
+					break;
+					}else{
+						System.out.println("Du hast keine AP mehr!\n\n");
+					}
+				
+				
+				}
+				//Schnelleingabe powermagie
+				if(mOrder[n].equals("-p")){
+
+					if(s.getFightingWert("ap")>=20){
+						s.reduceAP(20);
+						if(kritWert <= 99){
+							fokussiert=true;
+							System.out.println("Du fokussierst dich für den nächsten Angriff!\n");
+							break;
+						}else{
+							System.out.println("Das ging voll nach hinten los... Und die Chancen dafür standen echt schlecht, sorry...");
+						}
+
+					}else{
+						System.out.println("Du hast keine AP mehr!\n\n");			
+					}	
+				
+				}
+			} //<<<<<<<
+				
+		// Magie normale eingabe!	
+			if(input.equalsIgnoreCase("magie")){
+				System.out.println("Welchen Zauber möchtest du verwenden? (Anfangsbuchstabe genügt!)\n [regenerate = Stellt 20% der Lebenspunkte wieder her (Kosten 15 AP)]\n[Inferno = Fügt dem Gegener Feuerschaden zu (Kosten 5 AP)]\n[Blizzard = Fügt dem Gegener Frostschaden zu (Kosten 5 AP)]\n[Donnerschock = Fügt dem Gegener Blitzschaden zu (Kosten 5 AP)]\n[power = Garantiert einen kritischen Treffer in der nächsten Runde (Kosten = 20 AP)");
 				String spell = scan.next();
 				if( spell.equalsIgnoreCase("regenerate") || spell.equalsIgnoreCase("r")){
-					if(s.getFightingWert("ap")>=4){
-						s.heal(s.getFightingWert("lp")/20);
-						s.reduceAP(4);
+					if(s.getFightingWert("ap")>=15){
+						s.heal(s.getFightingWert("lpMax")/100*20);
+						s.reduceAP(15);
 					}else{
 						System.out.println("Du hast nicht genug AP");
 					}
@@ -285,9 +396,9 @@ public class Fight {
 					}else{
 						System.out.println("Du hast keine AP mehr!\n\n");			
 					}	
+				}
 			}
-		
-		}	else{
+		}else{
 			System.out.println("Du hast keine AP mehr!\n\n");
 		}
 		}

@@ -61,7 +61,7 @@ public class Menu {
 			System.out.println("hp-trank\t[Stellt Lebenspunkte komplett wieder her]");
 			System.out.println("map\t\t[Zeigt Karte mit der aktuellen Position]\nmap -b\t\t[Zeigt Standort der verbleibenden Boss-Gegner an]");
 			System.out.println("suchen\t\t[Durchsucht die Umgebung nach Items]");
-			System.out.println("item\t\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Rüstet das gewünschte Item aus]\nitem -b (Item Nummer)\t[Zeigt Item-Beschreibung an]");
+			System.out.println("item\t\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Rüstet das gewünschte Item aus, Itemnummer angeben]\nitem -b (Item Nummer)\t[Zeigt Item-Beschreibung an, Itemnummer angeben]");
 			System.out.println("credits\t\t[Zeigt die Personen an welche an der Erschaffung dieser Videospiel-Perle beteiligt waren!]");
 			System.out.println("hilfe\t\t[Zeigt ein recht unnützes Hilfe-Menü an]\n\n");
 			

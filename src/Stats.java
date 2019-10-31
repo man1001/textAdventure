@@ -135,6 +135,9 @@ import java.util.concurrent.TimeUnit;
 		if(s.equals("lp")){
 			return lp;
 		}
+		if(s.equals("lpMax")){
+			return lpMax;
+		}
 		
 		if(s.equals("ap")){
 			return actionPoints;
@@ -205,9 +208,9 @@ import java.util.concurrent.TimeUnit;
 			lp=lp+i;
 			System.out.println("Du regenerierst "+ i +" Lebenspunkte!\n"+ "Du hast jetzt "+lp+ " Lebenspunkte");
 		}
-		if(lp+i>=lpMax){
-			lp=lpMax;
-			System.out.println("Du bist vollständig geheilt!\n Du hast jetzt "+ lp+ " Lebenspunkte");
+		else if(lp+i>=lpMax){
+				lp=lpMax;
+				System.out.println("Du bist vollständig geheilt!\n Du hast jetzt "+ lp+ " Lebenspunkte");
 		}
 	}
 	public int getPotion(){

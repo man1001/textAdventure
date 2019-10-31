@@ -63,6 +63,10 @@ public class Navigation {
 		}
 	}
 	
+	public void SearchEncounter(){
+		fight.fight();
+	}
+	
 	public String getLocationName(){
 		return locationName;
 	}

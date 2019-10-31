@@ -105,8 +105,9 @@ public class Locations {
 	
 	Enemy balrog = new Enemy("Balrog von Morgoth", "Als du durch die Minen streifst kommt ein Grollen näher\n und vor dir baut sich eine riesige brennende Gestalt auf...\n Ein Zauberer tritt zwischen dich und das Ungetüm, dieser stürzt aber ungeschickt in den Abgrund bevor er etwas sagen kann... ", 300, 100, 200, 1000, 75, 50, 100, 1, 100,10000,60,160);
 	Fight vsBalrog = new Fight(balrog, spieler);
-	
-	Enemy voidWarrior = new Enemy("Krieger der Leere", "Die Erscheinung vor dir formiert sich zu einer Gestalt welche nichts menschliches an sich hat...", 290, 10, 10, 250, 45, 20, 10, 1, 25,200,200,200);
+	//Enemy Spickzettel = new Enemy(1name, 2enemyText, 3lebenspunkte, 4ap, 5lv, 6exp, 7 attack, 8 defense, 9 sAngr, 10 sDef, 11 initiative)
+
+	Enemy voidWarrior = new Enemy("Krieger der Leere", "Die Erscheinung vor dir formiert sich zu einer Gestalt welche nichts menschliches an sich hat...\nDu solltest echt abhauen, das Ding wirkt unglaublich stark!", 290, 20, 1000, 250, 145, 60, 120, 1, 125,250,250,200);
 	Fight vsLeerenKrieger = new Fight(voidWarrior, spieler);
 	
 	Enemy statue = new Enemy("Steinstatuen Wächter", "Als du das Schwert loslässt und dich nach etwas umsiehst mit dem du es aus dem Stein hebeln kannst\n wirst du von von zwei dich umgebenden Stein-Statuen angegriffen\n ", 300, 10, 15, 350, 95, 200, 1, 1, 0,130,75,120);
@@ -134,7 +135,7 @@ public class Locations {
 		n [1][5]= new Navigation("Finsterer Wald", "Du betrittst einen dunklen Wald!", "nothing" , 75, vsSpinne);
 		n [1][6]= new Navigation("Finsterer, dunkler Wald", "Du bist im Wald!", "nothing" , 45, vsSpinne);
 		n [2][0]= new Navigation("Kränklicher Wald", "Du bist im kränklichen Wald \n Abgestorbene Bäume stehen um dich herum \n Du fühlst dich beobachtet!", "Du findest nichts!", 80, vsZombie);
-		n [2][1]= new Navigation("Kränklicher kranker Wald", "Du bist im kränklichen Wald \n Abgestorbene Bäume stehen um dich herum \n Dunkle Nebelschwaden ziehen auf!", "Du findest einen gefallenen Ritter,\nda seine Rüstung noch intakt aussieht und er sie eh nicht mehr braucht\nnimmst du sie schweren Herzens an dich!", 25, vsZombie);
+		n [2][1]= new Navigation("Kränklicher kranker Wald", "Du bist im kränklichen Wald \n Abgestorbene Bäume stehen um dich herum \n Dunkle Nebelschwaden ziehen auf!", "Du findest einen gefallenen Ritter,\nda seine Rüstung noch intakt aussieht und er sie eh nicht mehr braucht\nnimmst du sie schweren Herzens an dich!", 25, vsZombie,8);
 		n [2][2]= new Navigation("Kränklicher kranker Wald", "Du bist im kränklichen Wald \n Abgestorbene Bäume stehen um dich herum \n Dunkle Nebelschwaden ziehen auf!", "Du findest nichts!", 25, vsBanditen);
 		n [2][3]= new Navigation("Östliches Weizenfeld", "Vor dir erstreckt sich ein Weizenfeld. Die Ähren neigen sich im Wind! Da du nicht weit von deinem Heimatdorf entfernt bist fühlst du dich relativ sicher!", "nichts", 100, vsVogelscheuche);
 		n [2][4]= new Navigation("Verlassene Farm", "Du kommst an einer alten verfallenen Farm an...", "Du findest ein aus Stahl geschmiedetes Schild in den überresten des Traktors!", 100, vsTraktor,7);
