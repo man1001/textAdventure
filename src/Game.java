@@ -5,7 +5,7 @@ public class Game {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("[!]Warnung: Dieses Spiel ist gespickt mit schlechten Referenzen, Reminiszenzen und Rechtschreibfehlern.\n\n\n");
+		System.out.println("[!]Warnung: Dieses Spiel ist gespickt mit schlechten Referenzen, Reminiszenzen und Rechtschreibfehlern.\n\n\n");		
 		System.out.println("Wie heißt du werter Spieler?");
 		Menu m = new Menu();					
 		m.menuStartLocation();
@@ -23,7 +23,7 @@ public class Game {
 		//hier gehts weiter nachdem alle 4 bosse besiegt wurden!
 		Stats spieler = new Stats();
 		spieler = m.getStats();
-		Enemy bowser = new Enemy("Bowser", "Bowser der finale Boss erscheint!", 600, 400, 20, 1, 160, 50, 120, 40, 1000);
+		Enemy bowser = new Enemy("Bowser", "Bowser der finale Boss erscheint!", 600, 400, 20, 1, 160, 50, 120, 40, 1000,"bowser");
 		Fight vsBowser = new Fight(bowser, spieler);
 		Navigation bossCastle = new Navigation("Schloss des Schreckens", "Nach all deinen Abenteuern hast du es endlich geschafft das Böse zu besiegen\n Aber es ist noch nicht ganz geschafft, der Finale Dungeon wartet!", " ", 100, vsBowser);
 		bossCastle.startNavi();

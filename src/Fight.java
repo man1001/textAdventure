@@ -15,6 +15,8 @@ public class Fight {
 	boolean fokussiert = false;
 	Random random = new Random();
 	
+	Image image = new Image();
+	
 	public Fight(Enemy e, Stats spieler){
 		this.e = e;
 		this.s = spieler;
@@ -22,6 +24,20 @@ public class Fight {
 	
 	public void fight(){
 		if(besiegt == false){
+			if(e.getMitBild()==true){
+				try {
+					TimeUnit.MILLISECONDS.sleep(2500);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}	
+			System.out.println(image.getImage(e.getBilderName()));	
+			try {
+					TimeUnit.MILLISECONDS.sleep(500);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}	
+			}
+	 		
 			System.out.println(e.getEnemyText());
 		
 		while(e.getFightingWert("lp")>0 && s.getFightingWert("lp")>0 && abbruchFight == false){
@@ -405,7 +421,7 @@ public class Fight {
 		if(input.equalsIgnoreCase("Flucht") || input.equalsIgnoreCase("f")){ 
 
 			int r = random.nextInt(100);
-			if(r<50){
+			if(r<80){
 			abbruchFight = true;
 			}else{
 				System.out.println("Das hat wohl nicht geklappt! \n Du stolperst und musst weiterkämpfen...\n");

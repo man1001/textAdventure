@@ -13,7 +13,7 @@ public class Locations {
 	
 	//Enemy Spickzettel = new Enemy(1name, 2enemyText, 3lebenspunkte, 4ap, 5lv, 6exp, 7 attack, 8 defense, 9 sAngr, 10 sDef, 11 initiative)
 	
-	Enemy dragon = new Enemy("Drache","Du wirst von einem feuerspeienden Drachen angegriffen!", 350, 200, 100, 300, 120, 20, 30, 20, 200, true,1000,120,70);
+	Enemy dragon = new Enemy("Drache","Du wirst von einem feuerspeienden Drachen angegriffen!", 350, 200, 100, 300, 120, 20, 30, 20, 200, true,1000,120,70,"dragon");
 	Fight vsDragon = new Fight(dragon, spieler);
 	
 	Enemy gargoyle = new Enemy("Gargoyles","Du wirst von Gargoyles angegriffen!", 500, 100, 10, 150, 40, 30, 1, 1, 100,120,160,40);
@@ -25,7 +25,7 @@ public class Locations {
 	Enemy riesenKrabbe = new Enemy("Menschenfressende Riesenkrabbe", "Du wirst von einer schrecklichen, menschenfressenden Riesenkrabbe angegriffen", 200, 300, 12, 100, 17, 200, 1, 6, 1,130,30,120);
 	Fight vsRiesenKrabbe = new Fight(riesenKrabbe, spieler);
 	
-	Enemy lich = new Enemy("Übermächtiger Lich", "Vor dir erscheint der Lich!", 500, 300, 10, 300, 160, 10, 1, 1000, 250, true,100,100,100);
+	Enemy lich = new Enemy("Übermächtiger Lich", "Vor dir erscheint der Lich!", 500, 300, 10, 300, 160, 10, 1, 1000, 250, true,100,100,100,"lich");
 	Fight vsLich = new Fight(lich, spieler);
 	
 	Enemy zombie = new Enemy("Gruppe Untoter", "Eine Gruppe Untoter Zombies  erscheint", 150, 120, 4, 130, 50, 120, 20, 50, 5,10,1000,120);
@@ -97,7 +97,7 @@ public class Locations {
 	Enemy samurai = new Enemy("Psychopatischer Samurai", "Ein Samurai erscheint \n Dieser verrückte Samurai hat es auf dein Schwert abgesehen... \n ", 90, 50, 12, 180, 90, 10, 0, 15, 100,110,110,30);
 	Fight vsSamurai = new Fight(samurai, spieler);
 	
-	Enemy lordNatas = new Enemy("Lord Natas","\n Lord Natas erscheint! \n Er ist der gefallene Engel... \n Und beliebt bei den Frauen... ", 666, 66, 66, 666, 150, 40, 67, 76, 666, true,666,333,65);
+	Enemy lordNatas = new Enemy("Lord Natas","\n Lord Natas erscheint! \n Er ist der gefallene Engel... \n Und beliebt bei den Frauen... ", 666, 66, 66, 666, 150, 40, 67, 76, 666, true,666,333,65,"natas");
 	Fight vsLordNatas = new Fight(lordNatas, spieler);
 	
 	Enemy komischeFrau = new Enemy("Besessene Frau", "In einem Anflug von Wahnsinn greift dich die liebeskranke Frau an", 10, 10, 2, 10, 5, 5, 5, 5, 1);
@@ -116,7 +116,7 @@ public class Locations {
 	Enemy letzterStadtbewohner = new Enemy("Überfürsorglicher Hausmeister", "...ist sie aber nicht! \n Der Hausmeister der Stadt rastet aus als er bemerkt das du mit dreckigen Schuhen seine saubere Stadt betreten hast.", 170, 100, 18, 400, 77, 89, 1, 21, 10,170,45,180);
 	Fight vsBewohner = new Fight(letzterStadtbewohner, spieler);
 	
-	Enemy dracula = new Enemy("Dracula", "Der Fürst der Finsternis der Meister des Bösen sitzt vor dir\n Nachdem er einen kurzen Monolog über die hybris der Menschlichkeit gehalten hat beschließt er dich anzugreifen...", 360, 10, 40, 500, 140, 43, 160, 47, 1000, true,105,105,105);
+	Enemy dracula = new Enemy("Dracula", "Der Fürst der Finsternis der Meister des Bösen sitzt vor dir\n Nachdem er einen kurzen Monolog über die hybris der Menschlichkeit gehalten hat beschließt er dich anzugreifen...", 360, 10, 40, 500, 140, 43, 160, 47, 1000, true,105,105,105,"dracula");
 	Fight vsDracula = new Fight(dracula, spieler);
 	
 	public Locations(){		

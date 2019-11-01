@@ -17,12 +17,14 @@ public class Enemy {
 	int thunderDef = 10;
 	int specDef =10;
 	int init =1;
+	String image;
+	boolean mitBild =false;
 	String trenner = "################################################################################################";
 	boolean isABoss = false;
 	public Enemy(){
 		
 	}
-
+	//Konstruktor keine Resistenzen
 	public Enemy(String name,String enemyText,int lebenspunkte, int ap, int lv, int exp, int attack, int defense, int sAngr, int sDef, int initiative) {		
 	this.name = name;
 	this.enemyText = enemyText;
@@ -37,6 +39,7 @@ public class Enemy {
 	init = initiative;
 	}
 	
+	//Konstruktor Element-Resistenz kein Boss-Version
 	public Enemy(String name,String enemyText,int lebenspunkte, int ap, int lv, int exp, int attack, int defense, int sAngr, int sDef, int initiative, int fd, int id, int td) {		
 	this.name = name;
 	this.enemyText = enemyText;
@@ -54,6 +57,7 @@ public class Enemy {
 	thunderDef = td;
 	}
 	
+	//Konstruktor Element-Resistenzen -Boss-Verion
 	public Enemy(String name,String enemyText,int lebenspunkte, int ap, int lv, int exp, int attack, int defense, int sAngr, int sDef, int initiative, boolean b, int fd, int id, int td) {		
 	this.name = name;
 	this.enemyText = enemyText;
@@ -72,6 +76,44 @@ public class Enemy {
 	thunderDef = td;
 	}
 	
+	//Konstruktor für Monster mit Bildern --> Boss-Version
+	public Enemy(String name,String enemyText,int lebenspunkte, int ap, int lv, int exp, int attack, int defense, int sAngr, int sDef, int initiative, boolean b, int fd, int id, int td,String bilderName) {		
+	this.name = name;
+	this.enemyText = enemyText;
+	lp = lebenspunkte;
+	actionPoints = ap;
+	level = lv;
+	this.exp = exp;
+	angr = attack;
+	def = defense;
+	specAngr = sAngr;
+	specDef = sDef;
+	init = initiative;
+	isABoss = b;
+	fireDef = fd;
+	iceDef = id;
+	thunderDef = td;
+	image = bilderName;
+	mitBild=true;
+	}
+	
+	//Konstruktor für Monster mit Bildern --> kein Boss-Version --> keine Element-Resistenzen
+	public Enemy(String name,String enemyText,int lebenspunkte, int ap, int lv, int exp, int attack, int defense, int sAngr, int sDef, int initiative, String bilderName) {		
+	this.name = name;
+	this.enemyText = enemyText;
+	lp = lebenspunkte;
+	actionPoints = ap;
+	level = lv;
+	this.exp = exp;
+	angr = attack;
+	def = defense;
+	specAngr = sAngr;
+	specDef = sDef;
+	init = initiative;
+	image = bilderName;
+	mitBild = true;
+	}
+	
 	public int getEnemyEXP(){
 		return exp;
 	}
@@ -79,6 +121,13 @@ public class Enemy {
 		return isABoss;
 	}
 	
+	public boolean getMitBild(){
+		return mitBild;
+	}
+	
+	public String getBilderName(){
+		return image;
+	}
 	
 	public void getEnemySpecs(){
 			System.out.println(trenner);

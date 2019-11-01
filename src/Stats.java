@@ -78,6 +78,8 @@ import java.util.concurrent.TimeUnit;
 			specDef= specDef+ sdR;
 			init = init + iR;
 			krit = krit + kritR;
+			lp = lpMax;
+			actionPoints = apMax;
 			System.out.println(
 					"Lebenspunkte "+ "\t\t" +lpMax + "\t /+"+ (lpR +10) + "\n"+
 					"Aktionspunkte "+ "\t\t" +apMax + "\t /+"+ (apR +10) + "\n"+
@@ -119,12 +121,12 @@ import java.util.concurrent.TimeUnit;
 			"Level "+ "\t\t\t" +level + "\n"+		
 			"Lebenspunkte "+ "\t\t"+lp+ " / "+lpMax + "\n"+
 			"Aktionspunkte "+ "\t\t" + actionPoints +" / "+ apMax+ "\n"+
-			"Angriff "+ "\t\t" +angr + " (+"+spielerItems.getItemListStats(usedItem, "angr")+")"+"\n"+
-			"Abwehr "+ "\t\t\t" +def + " (+"+spielerItems.getItemListStats(usedItem, "def")+")"+ "\n"+
-			"Spezial Angriff "+ "\t" +specAngr + " (+"+spielerItems.getItemListStats(usedItem, "specAngr")+")"+ "\n"+
-			"Spezial Verteidigung "+ "\t" +specDef + " (+"+spielerItems.getItemListStats(usedItem, "specDef")+")"+ "\n"+
-			"Initiative " + "\t\t" + init + " (+"+spielerItems.getItemListStats(usedItem, "init")+")"+ "\n"+
-			"Glück " + "\t\t\t" +krit + " (+"+spielerItems.getItemListStats(usedItem, "krit")+")"+ "\n\n\n"+
+			"Angriff "+ "\t\t" +(angr-spielerItems.getItemListStats(usedItem, "angr")) + " (+"+spielerItems.getItemListStats(usedItem, "angr")+")"+"\n"+
+			"Abwehr "+ "\t\t\t" +(def-spielerItems.getItemListStats(usedItem, "def")) + " (+"+spielerItems.getItemListStats(usedItem, "def")+")"+ "\n"+
+			"Spezial Angriff "+ "\t" +(specAngr-spielerItems.getItemListStats(usedItem, "specAngr")) + " (+"+spielerItems.getItemListStats(usedItem, "specAngr")+")"+ "\n"+
+			"Spezial Verteidigung "+ "\t" +(specDef-spielerItems.getItemListStats(usedItem, "specDef")) + " (+"+spielerItems.getItemListStats(usedItem, "specDef")+")"+ "\n"+
+			"Initiative " + "\t\t" + (init-spielerItems.getItemListStats(usedItem, "init")) + " (+"+spielerItems.getItemListStats(usedItem, "init")+")"+ "\n"+
+			"Glück " + "\t\t\t" +(krit-spielerItems.getItemListStats(usedItem, "krit")) + " (+"+spielerItems.getItemListStats(usedItem, "krit")+")"+ "\n\n\n"+
 			"Heiltränke \t\t"+potion+
 			"\nMagische Tränke \t"+ traenke+"\n"
 			);
@@ -192,6 +194,10 @@ import java.util.concurrent.TimeUnit;
 		actionPoints = apMax;
 		traenke--;
 		System.out.println("Deine AP wurden wiederhergestellt!\nDu hast jetzt "+ getFightingWert("ap")+" AP\nDu hast noch "+traenke+" Magische Tränk(e)\n");
+	}
+	
+	public void restoreActionPoints(){
+		actionPoints = apMax;
 	}
 	
 	public void setName(String n){

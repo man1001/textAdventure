@@ -19,7 +19,9 @@ public class Menu {
 	int z=0;
 	
 	int verwItem = -1;
+	boolean itemFound = false;
 	
+	Image image = new Image();
 	
 	public Stats getStats(){
 		return l.getSpieler();
@@ -53,6 +55,30 @@ public class Menu {
 		String s = scan.nextLine();
 		s = s.trim();
 		
+		//Test Bilderanzeige...
+		if(s.contains("bilder")){
+			String [] imag = s.split(" ",0);
+			for(int i=0; i<imag.length;i++){
+				if(imag[i].equals("bowser")){
+					System.out.println(image.bowser);
+				}
+				if(imag[i].equals("lich")){
+					System.out.println(image.lich);
+				}
+				if(imag[i].equals("dragon")){
+					System.out.println(image.dragon);
+				}
+				if(imag[i].equals("natas")){
+					System.out.println(image.natas);
+				}
+				if(imag[i].equals("dracula")){
+					System.out.println(image.dracula);
+				}
+				if(imag[i].equals("void")){
+					System.out.println(image.voidWarrior);
+				}
+			}
+		}
 		
 		//menu anzeigen
 		if(s.equalsIgnoreCase("menu")){
@@ -145,9 +171,14 @@ public class Menu {
 					
 			}
 			//Ausgabe aller Items
-			if(s.equalsIgnoreCase("item")){			
+			if(s.equalsIgnoreCase("item")){
+				if(itemFound==true){
 				l.getSpieler().spielerItems.getItemListeImBesitz();
-				System.out.println("\n");
+				System.out.println("\n");	
+				}else{
+					System.out.println("Du hast noch keine Items!\n");
+				}
+				
 			}
 			
 		}
@@ -159,6 +190,7 @@ public class Menu {
 					if(i>=0){
 					System.out.println("Du findest "+ l.getSpieler().spielerItems.getItemListeName(i)+"!");
 					l.getSpieler().spielerItems.ItemListErhalteItem(i);
+					itemFound = true;
 					
 					}
 				}
