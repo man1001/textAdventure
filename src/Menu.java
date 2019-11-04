@@ -188,7 +188,7 @@ public class Menu {
 					
 					int i=l.getItemNr(x, y);
 					if(i>=0){
-					System.out.println("Du findest "+ l.getSpieler().spielerItems.getItemListeName(i)+"!");
+					System.out.println("Du findest "+ l.getSpieler().spielerItems.getItemListeName(i)+"!\n");
 					l.getSpieler().spielerItems.ItemListErhalteItem(i);
 					itemFound = true;
 					
