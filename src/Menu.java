@@ -9,7 +9,7 @@ public class Menu {
 	String prompt;
 	String m1 ="Durchsuchen";
 	String m2 = "Bewegen";
-	String m3 = "Kämpfen";
+	String m3 = "Kaempfen";
 	Stats spieler;
 	Locations l = new Locations();
 	Karte karte = new Karte();
@@ -29,7 +29,7 @@ public class Menu {
 	
 	public Menu(){
 		l.setName(scan.nextLine());
-		System.out.println("Du bist der Bewohner des abgelegenen Dorfes Praxx, in welchem es die Tradition \n gibt einen Jüngling zu seinem 18 Geburtstag in die Welt hinaus zu schicken um das Böse zu bekämpfen! \n Durch diese abstruse Tradition herscht im Dorf nun ein massiver Mangel an Erwachsenen \n aber Tradition ist nun mal Tradition... \n Da heute dein 18. Geburtstag ist wirst ist nun deine Zeit für das große Abenteuer gekommen! \n");
+		System.out.println("Du bist der Bewohner des abgelegenen Dorfes Praxx, in welchem es die Tradition \n gibt einen Juengling zu seinem 18 Geburtstag in die Welt hinaus zu schicken um das Boese zu bekaempfen! \n Durch diese abstruse Tradition herscht im Dorf nun ein massiver Mangel an Erwachsenen \n aber Tradition ist nun mal Tradition... \n Da heute dein 18. Geburtstag ist wirst ist nun deine Zeit fuer das große Abenteuer gekommen! \n");
 	}
 	
 	public void menuStartLocation(){
@@ -47,11 +47,11 @@ public class Menu {
 
 
 	public void getMenu(){
-		System.out.println(prompt  + " \n Was möchtest du tun? \n" + m1 + "\n" + m2 + "\n" + m3 + "\n" );
+		System.out.println(prompt  + " \n Was moechtest du tun? \n" + m1 + "\n" + m2 + "\n" + m3 + "\n" );
 	}
 	
 	public void bewegen(){
-		System.out.println("In welche Richtung möchtest du gehen? [Norden/Süden/Westen/Osten]\t[menu]");
+		System.out.println("In welche Richtung moechtest du gehen? [Norden/Sueden/Westen/Osten]\t[menu]");
 		String s = scan.nextLine();
 		s = s.trim();
 		
@@ -87,14 +87,14 @@ public class Menu {
 			System.out.println("hp-trank\t[Stellt Lebenspunkte komplett wieder her]");
 			System.out.println("map\t\t[Zeigt Karte mit der aktuellen Position]\nmap -b\t\t[Zeigt Standort der verbleibenden Boss-Gegner an]");
 			System.out.println("suchen\t\t[Durchsucht die Umgebung nach Items]");
-			System.out.println("item\t\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Rüstet das gewünschte Item aus, Itemnummer angeben]\nitem -b (Item Nummer)\t[Zeigt Item-Beschreibung an, Itemnummer angeben]");
+			System.out.println("item\t\t[Zeigt Liste der gefundenen Items]\nitem -a (Item Nummer)\t[Ruestet das gewuenschte Item aus, Itemnummer angeben]\nitem -b (Item Nummer)\t[Zeigt Item-Beschreibung an, Itemnummer angeben]");
 			System.out.println("credits\t\t[Zeigt die Personen an welche an der Erschaffung dieser Videospiel-Perle beteiligt waren!]");
-			System.out.println("hilfe\t\t[Zeigt ein recht unnützes Hilfe-Menü an]\n\n");
+			System.out.println("hilfe\t\t[Zeigt ein recht unnuetzes Hilfe-Menue an]\n\n");
 			
 		}
 		
 		
-		//item anzeigen aendern und ausrüsten
+		//item anzeigen aendern und ausruesten
 		
 		if(s.contains("item")){
 			String [] option = s.split(" ", 0);
@@ -159,7 +159,7 @@ public class Menu {
 									System.out.println("Du besitzt dieses Item nicht!\n");
 								}								}
 								catch(Exception e) {
-								  System.out.println("[!]OMG Das hätte echt nicht passieren sollen...\n");
+								  System.out.println("[!]OMG Das haette echt nicht passieren sollen...\n");
 								}
 
 							
@@ -204,7 +204,7 @@ public class Menu {
 						if(schalter[asdf].contains("h")){
 							System.out.println("map -b : Zeigt Standort der 4 Boss-Gegner an.");
 							System.out.println("map -h : Zeigt diese Hilfe-Seite an");
-							System.out.println("map -d : Zeigt Standort von Städten und Dörfern an\n");
+							System.out.println("map -d : Zeigt Standort von Staedten und Doerfern an\n");
 						}
 						if(schalter[asdf].contains("b")){
 							karte.showBossMap(l.getBossStatus(0),l.getBossStatus(1),l.getBossStatus(2),l.getBossStatus(3));
@@ -223,15 +223,15 @@ public class Menu {
 				}
 		//credits
 		if(s.equalsIgnoreCase("credits")){
-			System.out.println("\n\n\n Credits:\n Programmiert by Manuel Langer\n Kreative Berater:\n Stefan Kolb \n Tim Sigl \n Timo Eichmüller");
+			System.out.println("\n\n\n Credits:\n Programmiert by Manuel Langer\n Kreative Berater:\n Stefan Kolb \n Tim Sigl \n Timo Eichmueller");
 		}
 		//help
 		if(s.equalsIgnoreCase("help")|| s.equalsIgnoreCase("hilfe")){
-		System.out.println("Navigation: Gib die entsprechende Himmelsrichtung ein in welche du gehen möchtest.");
-		System.out.println("MP-Trank: Füllt deine Aktionspunkte für Magie-Angriffe wieder auf den maximalen wert auf. Verbraucht MP-Tränke.");
-		System.out.println("HP-Trank: Füllt deine Lebenspunkte wider komplett auf. Verbraucht HP-Tränke.");
+		System.out.println("Navigation: Gib die entsprechende Himmelsrichtung ein in welche du gehen moechtest.");
+		System.out.println("MP-Trank: Fuellt deine Aktionspunkte fuer Magie-Angriffe wieder auf den maximalen wert auf. Verbraucht MP-Traenke.");
+		System.out.println("HP-Trank: Fuellt deine Lebenspunkte wider komplett auf. Verbraucht HP-Traenke.");
 		System.out.println("Karte: Zeigt eine Karte mit deinem aktuellen Standort an.");
-		System.out.println("stats: Zeigt dein aktuelles Level, Statuswerte und Anzahl verbliebener Tränke an.\n\n\n");
+		System.out.println("stats: Zeigt dein aktuelles Level, Statuswerte und Anzahl verbliebener Traenke an.\n\n\n");
 		}
 		
 		//exit
@@ -246,7 +246,7 @@ public class Menu {
 			if(l.getSpieler().getPotion()>0){
 				l.getSpieler().heal();
 			}else{
-				System.out.println("Du hast keine Heiltränke mehr!");
+				System.out.println("Du hast keine Heiltraenke mehr!");
 			}
 		
 		}
@@ -257,7 +257,7 @@ public class Menu {
 			if(l.getSpieler().getTraenke()>0){
 				l.getSpieler().restoreAP();
 			}else{
-				System.out.println("Du hast keine magischen Tränke mehr!");
+				System.out.println("Du hast keine magischen Traenke mehr!");
 			}
 		
 		}
@@ -295,11 +295,11 @@ public class Menu {
 		 		l.startLocation(x, y);}
 		 	}
 		}  
-		//Süden
-		if(s.equalsIgnoreCase("s") || s.equalsIgnoreCase("Süden")){
+		//Sueden
+		if(s.equalsIgnoreCase("s") || s.equalsIgnoreCase("Sueden")){
 		 	  if(y>=0 && y<=6) { 
 		 		y--;
-		 		System.out.println("Du wanderst nach Süden...\n");	
+		 		System.out.println("Du wanderst nach Sueden...\n");	
 		 		
 		 		try {
 					TimeUnit.MILLISECONDS.sleep(250);
@@ -308,7 +308,7 @@ public class Menu {
 				}
 		 		
 		 		if(y < 0 ){
-			 		System.out.println("Du kommst in der Feuer-Wüste an, die Sonne brennt vom Himmel und dir dürstet es nach Wasser Du kehrst zwangsweise um! \n");	
+			 		System.out.println("Du kommst in der Feuer-Wueste an, die Sonne brennt vom Himmel und dir duerstet es nach Wasser Du kehrst zwangsweise um! \n");	
 			 		y++;
 			 		
 			 		try {
@@ -326,7 +326,7 @@ public class Menu {
 			
 		 	
 		 	/* if(y>6){
-		 		System.out.println("Du kommst an ein unüberwindliches Gebirge, du hast keine andere Wahl als umzukehren!\n Du gehst in die Richtun!");
+		 		System.out.println("Du kommst an ein unueberwindliches Gebirge, du hast keine andere Wahl als umzukehren!\n Du gehst in die Richtun!");
 		 		y--;
 		 		l.startLocation(x, y);
 		 	
@@ -347,7 +347,7 @@ public class Menu {
 					}
 			 		
 			 		if(x > 6 ){
-				 		System.out.println("Du kommst an einem unüberwindlichen Gebirge an! \n Dir bleibt nichts anderes als umzukehren!");	
+				 		System.out.println("Du kommst an einem unueberwindlichen Gebirge an! \n Dir bleibt nichts anderes als umzukehren!");	
 				 		x--;
 				 		
 				 		try {
@@ -365,7 +365,7 @@ public class Menu {
 		}
 		//Wosten
 		if(s.equalsIgnoreCase("wosten")){
-			System.out.println("Öh,Osten? Haben sie nicht gesagt Wosten?");
+			System.out.println("oeh,Osten? Haben sie nicht gesagt Wosten?");
 			l.spieler.setEXP(10000);
 			l.spieler.lvUP();
 		}
@@ -383,7 +383,7 @@ public class Menu {
 				}
 		 		
 		 		if(x < 0 ){
-			 		System.out.println("Du kommst an einem stürmischen Meer an, da du nicht schwimmen kannst entscheidest du dich umzukehren!");	
+			 		System.out.println("Du kommst an einem stuermischen Meer an, da du nicht schwimmen kannst entscheidest du dich umzukehren!");	
 			 		x++;
 			 		
 			 		try {
