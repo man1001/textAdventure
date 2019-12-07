@@ -25,14 +25,14 @@ public class Game {
 		spieler = m.getStats();
 		Enemy bowser = new Enemy("Bowser", "Bowser der finale Boss erscheint!", 600, 400, 20, 1, 160, 50, 120, 40, 1000,"bowser");
 		Fight vsBowser = new Fight(bowser, spieler);
-		Navigation bossCastle = new Navigation("Schloss des Schreckens", "Nach all deinen Abenteuern hast du es endlich geschafft das Böse zu besiegen\n Aber es ist noch nicht ganz geschafft, der Finale Dungeon wartet!", " ", 100, vsBowser);
+		Navigation bossCastle = new Navigation("Schloss des Schreckens", "Nach all deinen Abenteuern hast du es endlich geschafft das Boese zu besiegen\n Aber es ist noch nicht ganz geschafft, der Finale Dungeon wartet!", " ", 100, vsBowser);
 		bossCastle.startNavi();
 		if(bowser.besiegt == true){
-		System.out.println("Du hast die Welt gerettet und unterwegs noch die Prinzessin gerettet, genug für einen Tag arbeit!\n Für alle Zeiten soll " + spieler.name+ " als großer Held in die Geschichte eingehen!" + "\n ENDE?!");
+		System.out.println("Du hast die Welt gerettet und unterwegs noch die Prinzessin gerettet, genug fuer einen Tag arbeit!\n Fuer alle Zeiten soll " + spieler.name+ " als großer Held in die Geschichte eingehen!" + "\n ENDE?!");
 		}else{
-			System.out.println("Da du vor deinem mächtigen Gegner flüchtest übernimmt Bowser die Kontrolle über das Land \n Es ist zwar nicht optimal, aber was soll man machen? Hilft ja nichts... \n Du ziehst dich in dein Heimatdorf zurück und hoffst das die Krise ohne dein zutun zuende geht! \n ENDE!!");
+			System.out.println("Da du vor deinem maechtigen Gegner fluechtest uebernimmt Bowser die Kontrolle ueber das Land \n Es ist zwar nicht optimal, aber was soll man machen? Hilft ja nichts... \n Du ziehst dich in dein Heimatdorf zurueck und hoffst das die Krise ohne dein zutun zuende geht! \n ENDE!!");
 		}
-		System.out.println("\n\n\n Credits:\n Programmiert by Manuel Langer\n Kreative Berater:\n Stefan Kolb \n Tim Sigl \n Timo Eichmüller");
+		System.out.println("\n\n\n Credits:\n Programmiert by Manuel Langer\n Kreative Berater:\n Stefan Kolb \n Tim Sigl \n Timo Eichmueller");
 		scan.close();
 	}
 
