@@ -56,9 +56,9 @@ import java.util.concurrent.TimeUnit;
 			System.out.println("your exp: " + exp);
 			nextLvUp = (int) (100 * Math.pow(2, ((double)level-2)));
 			if((nextLvUp-exp)<0){
-				System.out.println("benötigte exp für nächsten LevelUP: 0");
+				System.out.println("benoetigte exp fuer naechsten LevelUP: 0");
 			}else{
-			System.out.println("benötigte exp für nächsten LevelUP: " + (nextLvUp-exp));
+			System.out.println("benoetigte exp fuer naechsten LevelUP: " + (nextLvUp-exp));
 			}
 			
 			System.out.println("New Level: " + level);
@@ -89,7 +89,7 @@ import java.util.concurrent.TimeUnit;
 					"Magie "+ "\t\t\t" +specAngr + "\t /+"+ saR +"\n"+
 					"Magieresistenz "+ "\t\t" +specDef + "\t /+"+ sdR +"\n"+
 					"Initiative " + "\t\t" +init + "\t /+" + iR + "\n"+
-					"Glück \t\t\t" +krit + "\t /+" + kritR
+					"Glueck \t\t\t" +krit + "\t /+" + kritR
 					);	
 
 			}
@@ -108,9 +108,9 @@ import java.util.concurrent.TimeUnit;
 			"Spezial Angriff "+ "\t" +specAngr + "\n"+
 			"Spezial Verteidigung "+ "\t" +specDef + "\n"+
 			"Initiative " + "\t\t" + init + "\n"+
-			"Glück " + "\t\t\t" +krit + "\n\n\n"+
-			"Heiltränke \t\t"+potion+
-			"\nMagische Tränke \t"+ traenke+"\n"
+			"Glueck " + "\t\t\t" +krit + "\n\n\n"+
+			"Heiltraenke \t\t"+potion+
+			"\nMagische Traenke \t"+ traenke+"\n"
 			);
 		
 		}else{
@@ -126,9 +126,9 @@ import java.util.concurrent.TimeUnit;
 			"Spezial Angriff "+ "\t" +(specAngr-spielerItems.getItemListStats(usedItem, "specAngr")) + " (+"+spielerItems.getItemListStats(usedItem, "specAngr")+")"+ "\n"+
 			"Spezial Verteidigung "+ "\t" +(specDef-spielerItems.getItemListStats(usedItem, "specDef")) + " (+"+spielerItems.getItemListStats(usedItem, "specDef")+")"+ "\n"+
 			"Initiative " + "\t\t" + (init-spielerItems.getItemListStats(usedItem, "init")) + " (+"+spielerItems.getItemListStats(usedItem, "init")+")"+ "\n"+
-			"Glück " + "\t\t\t" +(krit-spielerItems.getItemListStats(usedItem, "krit")) + " (+"+spielerItems.getItemListStats(usedItem, "krit")+")"+ "\n\n\n"+
-			"Heiltränke \t\t"+potion+
-			"\nMagische Tränke \t"+ traenke+"\n"
+			"Glueck " + "\t\t\t" +(krit-spielerItems.getItemListStats(usedItem, "krit")) + " (+"+spielerItems.getItemListStats(usedItem, "krit")+")"+ "\n\n\n"+
+			"Heiltraenke \t\t"+potion+
+			"\nMagische Traenke \t"+ traenke+"\n"
 			);
 		}
 	}
@@ -193,7 +193,7 @@ import java.util.concurrent.TimeUnit;
 	public void restoreAP(){
 		actionPoints = apMax;
 		traenke--;
-		System.out.println("Deine AP wurden wiederhergestellt!\nDu hast jetzt "+ getFightingWert("ap")+" AP\nDu hast noch "+traenke+" Magische Tränk(e)\n");
+		System.out.println("Deine AP wurden wiederhergestellt!\nDu hast jetzt "+ getFightingWert("ap")+" AP\nDu hast noch "+traenke+" Magische Traenk(e)\n");
 	}
 	
 	public void restoreActionPoints(){
@@ -206,7 +206,7 @@ import java.util.concurrent.TimeUnit;
 	public void heal(){
 		restoreLifePoints();
 		potion--;
-		System.out.println("Deine Lebenspunkte wurden wiederhergestellt!\nDu hast jetzt "+ getFightingWert("lp")+" Lebenspunkte\nDu hast noch "+potion+" Heiltränk(e)\n");
+		System.out.println("Deine Lebenspunkte wurden wiederhergestellt!\nDu hast jetzt "+ getFightingWert("lp")+" Lebenspunkte\nDu hast noch "+potion+" Heiltraenk(e)\n");
 	}
 	
 	public void heal(int i){
@@ -216,7 +216,7 @@ import java.util.concurrent.TimeUnit;
 		}
 		else if(lp+i>=lpMax){
 				lp=lpMax;
-				System.out.println("Du bist vollständig geheilt!\n Du hast jetzt "+ lp+ " Lebenspunkte");
+				System.out.println("Du bist vollstaendig geheilt!\n Du hast jetzt "+ lp+ " Lebenspunkte");
 		}
 	}
 	public int getPotion(){
